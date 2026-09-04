@@ -1,6 +1,4 @@
-// Root build for the CompanionOS multi-module project.
-// Concrete configuration lives in each module's build.gradle.kts; this file only
-// holds settings shared by every subproject.
+
 
 plugins {
     java
