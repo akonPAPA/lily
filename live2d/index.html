@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>CompanionOS Live2D</title>
+  <style>
+    html, body { margin: 0; height: 100%; background: transparent; overflow: hidden; }
+    #c { display: block; }
+  </style>
+  <!-- Live2D Cubism Core (official) -->
+  <script src="https://cubism.live2d.com/sdk-web/cubismcore/live2dcubismcore.min.js"></script>
+  <!-- PixiJS v6 (required by pixi-live2d-display) + the Live2D display plugin -->
+  <script src="https://cdn.jsdelivr.net/npm/pixi.js@6.5.10/dist/browser/pixi.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pixi-live2d-display@0.4.0/dist/cubism4.min.js"></script>
+</head>
+<body>
+  <canvas id="c"></canvas>
+  <script>
+    // Free Live2D sample model "Haru" (Live2D Free Material License), served via jsDelivr.
+    const MODEL = 'https://cdn.jsdelivr.net/gh/brianhsu/Live2DForScala@master/'
+        + 'modules/core/src/test/resources/models/Haru/Haru.model3.json';
+
+    const status = (msg) => { console.log('[live2d] ' + msg); window.__live2dStatus = msg; };
+
+    // Robust viewport size: window can report 0 at load in some embedded hosts.
+    const vw = () => window.innerWidth || 512;
+    const vh = () => window.innerHeight || 720;
+
+    (async () => {
+      try {
+        status('loading pixi app');
+        const app = new PIXI.Application({
+          view: document.getElementById('c'),
+          width: vw(),
+          height: vh(),
+          backgroundAlpha: 0,     // transparent
+          antialias: true,
+          autoStart: true,
+          preserveDrawingBuffer: true,
+        });
+        window.__app = app;
+
+        status('loading model');
+        const model = await PIXI.live2d.Live2DModel.from(MODEL);
+        app.stage.addChild(model);
+
+        const fit = () => {
+          app.renderer.resize(vw(), vh());
+          const natW = model.width / model.scale.x;
+          const natH = model.height / model.scale.y;
+          const s = Math.min(vw() / natW, vh() / natH) * 0.92;
+          model.scale.set(s);
+          model.anchor.set(0.5, 0.5);
+          model.position.set(vw() / 2, vh() / 2);
+        };
+        fit();
+        requestAnimationFrame(fit);          // re-fit once the host has sized the view
+        setTimeout(fit, 300);                 // and again after layout settles
+        window.addEventListener('resize', fit);
+
+        // --- Control API for the Java host to call via the browser bridge ---
+        window.companion = {
+          setMouth: (v) => model.internalModel.coreModel.setParameterValueById('ParamMouthOpenY', v),
+          lookAt: (nx, ny) => model.focus(nx * innerWidth, ny * innerHeight),
+          motion: (group, i) => model.motion(group, i),
+        };
+
+        window.model = model;
+        status('ready');
+      } catch (e) {
+        status('error: ' + (e && e.message ? e.message : e));
+        console.error(e);
+      }
+    })();
+  </script>
+</body>
+</html>

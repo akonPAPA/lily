@@ -1,0 +1,118 @@
+{
+  "meta": {
+    "image": "sprites.png",
+    "frameWidth": 200,
+    "frameHeight": 260,
+    "style": "portrait-image",
+    "renderScale": 1,
+    "note": "Smooth hi-res pack via ai/tools/pack_strips.py (gap-split + connected-component clean-up) from the redrawn lily_png set. nod/nap are synthetic. Drawn talk/blink rows replace the procedural mouth/eye overlay.",
+    "hand": {
+      "x": 0.68,
+      "y": 0.42
+    }
+  },
+  "actions": {
+    "idle": {
+      "row": 0,
+      "frames": 4,
+      "fps": 4,
+      "loop": true
+    },
+    "blink": {
+      "row": 1,
+      "frames": 3,
+      "fps": 10,
+      "loop": false
+    },
+    "talk": {
+      "row": 2,
+      "frames": 5,
+      "fps": 12,
+      "loop": true
+    },
+    "walk": {
+      "row": 3,
+      "frames": 7,
+      "fps": 10,
+      "loop": true
+    },
+    "wave": {
+      "row": 4,
+      "frames": 6,
+      "fps": 12,
+      "loop": false
+    },
+    "sit": {
+      "row": 5,
+      "frames": 3,
+      "fps": 3,
+      "loop": true
+    },
+    "sleep": {
+      "row": 6,
+      "frames": 4,
+      "fps": 3,
+      "loop": true
+    },
+    "happy": {
+      "row": 7,
+      "frames": 4,
+      "fps": 10,
+      "loop": false
+    },
+    "sad": {
+      "row": 8,
+      "frames": 3,
+      "fps": 10,
+      "loop": false
+    },
+    "angry": {
+      "row": 9,
+      "frames": 3,
+      "fps": 10,
+      "loop": false
+    },
+    "surprised": {
+      "row": 10,
+      "frames": 3,
+      "fps": 12,
+      "loop": false
+    },
+    "grab_cursor": {
+      "row": 11,
+      "frames": 4,
+      "fps": 12,
+      "loop": false
+    },
+    "held_drag": {
+      "row": 12,
+      "frames": 3,
+      "fps": 8,
+      "loop": true
+    },
+    "push_window": {
+      "row": 13,
+      "frames": 4,
+      "fps": 8,
+      "loop": false
+    },
+    "sit_on_edge": {
+      "row": 14,
+      "frames": 3,
+      "fps": 3,
+      "loop": true
+    },
+    "nod": {
+      "row": 15,
+      "frames": 3,
+      "fps": 8,
+      "loop": false
+    },
+    "nap": {
+      "row": 16,
+      "frames": 2,
+      "fps": 2,
+      "loop": true
+    }
+  }
+}

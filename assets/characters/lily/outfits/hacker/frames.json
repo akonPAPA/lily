@@ -1,0 +1,24 @@
+{
+  "meta": {
+    "image": "sprites.png",
+    "frameWidth": 200,
+    "frameHeight": 260,
+    "style": "portrait-image",
+    "renderScale": 1,
+    "note": "Outfit 'hacker' from 1788472711.png via ai/tools/pack_strips.py --outfit. Single idle frame; procedural mouth/blink. Tune 'mouth' with mouth_preview.py.",
+    "mouth": {
+      "x": 0.5,
+      "y": 0.22,
+      "w": 0.035,
+      "h": 0.03
+    }
+  },
+  "actions": {
+    "idle": {
+      "row": 0,
+      "frames": 1,
+      "fps": 1,
+      "loop": true
+    }
+  }
+}
