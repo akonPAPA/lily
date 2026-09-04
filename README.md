@@ -1,11 +1,11 @@
-# CompanionOS
+# Lily
 
 A **local-first, voice-driven AI desktop companion**. A pixel-art character lives on
 your Windows desktop as a transparent always-on-top overlay; you wake it by voice, a
 **local** Small Language Model answers, local TTS speaks, and the character animates.
 The personality is controlled by a human-editable `persona.md`.
 
-The canonical specification is [`CompanionOS.md`](CompanionOS.md). The active build plan
+The canonical specification is [`Lily.md`](Lily.md). The active build plan
 (milestones, locked tech choices, decisions) lives in the plan file referenced there.
 
 > **Boundary:** the cloud backend only distributes models/assets/updates. The
