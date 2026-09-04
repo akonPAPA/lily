@@ -7,22 +7,22 @@
     html, body { margin: 0; height: 100%; background: transparent; overflow: hidden; }
     #c { display: block; }
   </style>
-  <!-- Live2D Cubism Core (official) -->
+  <!-- Live2D Cubism Core  -->
   <script src="https://cubism.live2d.com/sdk-web/cubismcore/live2dcubismcore.min.js"></script>
-  <!-- PixiJS v6 (required by pixi-live2d-display) + the Live2D display plugin -->
+  <!-- PixiJS v6 (required by pixi live2d display) + the live2D display plugin so idk maybe okay or no -->
   <script src="https://cdn.jsdelivr.net/npm/pixi.js@6.5.10/dist/browser/pixi.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/pixi-live2d-display@0.4.0/dist/cubism4.min.js"></script>
 </head>
 <body>
   <canvas id="c"></canvas>
   <script>
-    // Free Live2D sample model "Haru" (Live2D Free Material License), served via jsDelivr.
+    // Free Live2D sample model , I tried to make model like 2d-live but this shit took 3gb memory with AI so I cancelled it
     const MODEL = 'https://cdn.jsdelivr.net/gh/brianhsu/Live2DForScala@master/'
         + 'modules/core/src/test/resources/models/Haru/Haru.model3.json';
 
     const status = (msg) => { console.log('[live2d] ' + msg); window.__live2dStatus = msg; };
 
-    // Robust viewport size: window can report 0 at load in some embedded hosts.
+    // maybe it will be better with  ssft but Im not sure cuz I spent only 5 hours on this project and too lazy to check if it is good
     const vw = () => window.innerWidth || 512;
     const vh = () => window.innerHeight || 720;
 
@@ -58,7 +58,7 @@
         setTimeout(fit, 300);                 // and again after layout settles
         window.addEventListener('resize', fit);
 
-        // --- Control API for the Java host to call via the browser bridge ---
+        // control api for the java host but work through browser bridge
         window.companion = {
           setMouth: (v) => model.internalModel.coreModel.setParameterValueById('ParamMouthOpenY', v),
           lookAt: (nx, ny) => model.focus(nx * innerWidth, ny * innerHeight),
