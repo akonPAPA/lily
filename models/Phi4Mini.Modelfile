@@ -1,6 +1,5 @@
-# Imports the already-downloaded Phi-4-mini-instruct GGUF into Ollama so
-# CompanionOS can use it via Ollama's OpenAI-compatible API without re-downloading.
-# Build:  ollama create companion-phi4-mini -f models/Phi4Mini.Modelfile
+# P.S: I updated gitignore so I think I can put the model through github 
+# nvm
 FROM C:/CompONION/models/Phi-4-mini-instruct-Q4_K_M.gguf
 
 PARAMETER temperature 0.7
