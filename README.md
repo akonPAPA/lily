@@ -1,4 +1,5 @@
 # Lily
+## If this project will be good for community I will ad more better animations and integrate it with better performance and add better emotional fine tunned LLM or fine tune some of them by my self
 
 A **local-first, voice-driven AI desktop companion**. A pixel-art character lives on
 your Windows desktop as a transparent always-on-top overlay; you wake it by voice, a
