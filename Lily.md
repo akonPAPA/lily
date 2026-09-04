@@ -1,9 +1,9 @@
-# CompanionOS
+# Lily
 
 ## 0. Project Status
 
 **Document type:** Canonical project specification  
-**Project name:** CompanionOS  
+**Project name:** Lily  
 **Primary goal:** Build a local-first AI desktop companion that exists as an animated character on Windows/macOS, communicates primarily by voice, uses a locally running fine-tuned Small Language Model (SLM), and can be customized through a human-editable `persona.md` file.
 
 This document defines the project idea, architecture, data flows, implementation boundaries, research directions, engineering requirements, and a practical development roadmap.
@@ -12,7 +12,7 @@ This document defines the project idea, architecture, data flows, implementation
 
 # 1. Core Idea
 
-CompanionOS is a desktop AI-character platform where the user can:
+Lily is a desktop AI-character platform where the user can:
 
 1. Install the application on Windows or macOS.
 2. Download a compatible local AI model and required runtime assets.
@@ -47,7 +47,7 @@ Normal user speech is not sent to the backend.
 
 # 2. Product Principle
 
-CompanionOS is **local-first**.
+Lily is **local-first**.
 
 The fundamental rule is:
 
@@ -70,9 +70,9 @@ After installation and model download, the companion should remain usable offlin
 
 ---
 
-# 3. What CompanionOS Is Not
+# 3. What Lily Is Not
 
-CompanionOS is not:
+Lily is not:
 
 - a ChatGPT clone;
 - a text-chat application;
@@ -97,7 +97,7 @@ There may be a settings UI, logs/debug UI, and administrative views, but the nor
 ## 4.1 First launch
 
 ```text
-Install CompanionOS
+Install Lily
         ↓
 Launch
         ↓
@@ -332,7 +332,7 @@ Preferred pitch: slightly low
 
 - Do not produce long lectures unless explicitly asked.
 - Do not pretend to perform external actions that were not performed.
-- Do not claim access to the operating system beyond the capabilities provided by CompanionOS.
+- Do not claim access to the operating system beyond the capabilities provided by Lily.
 ```
 
 ---
@@ -504,7 +504,7 @@ Final release
 
 # 14. Fine-Tuning Objectives
 
-Fine-tuning is aimed at the CompanionOS workload.
+Fine-tuning is aimed at the Lily workload.
 
 Priority:
 
@@ -532,7 +532,7 @@ It is not necessary for the model to be the strongest available system on:
 - large-scale reasoning;
 - MMLU-like tests.
 
-A model can be weaker at those tasks but still be a better CompanionOS model.
+A model can be weaker at those tasks but still be a better Lily model.
 
 ---
 
@@ -866,7 +866,7 @@ Windows only sees:
 
 > a normal window with transparent pixels.
 
-The CompanionOS runtime handles:
+The Lily runtime handles:
 
 - bones;
 - poses;
@@ -1187,7 +1187,7 @@ User selects approximately 8–12 anchor points:
 - knees;
 - feet.
 
-Then CompanionOS generates:
+Then Lily generates:
 
 ```text
 rig.json
@@ -1407,7 +1407,7 @@ Full autonomous computer control is not a V1 requirement.
 Example:
 
 ```text
-CompanionOS/
+Lily/
 │
 ├── app/
 │
@@ -1815,7 +1815,7 @@ This should be a primary research/performance metric.
 
 # 56. Security Threat Model
 
-CompanionOS handles:
+Lily handles:
 
 - microphone;
 - local conversation;
@@ -2092,10 +2092,10 @@ Every ADR should include:
 # 64. Project Repository Structure
 
 ```text
-CompanionOS/
+Lily/
 │
 ├── README.md
-├── CompanionOS.md
+├── Lily.md
 │
 ├── desktop/
 │   └── Java desktop application
@@ -2305,7 +2305,7 @@ Definition of Done:
 
 ```text
 fine-tuned model outperforms base model
-on CompanionOS-specific evaluation
+on Lily-specific evaluation
 without unacceptable general regression
 ```
 
@@ -2361,7 +2361,7 @@ exists.
 
 # 75. Definition of Done — Full Project
 
-CompanionOS V1 is complete when all of the following are true:
+Lily V1 is complete when all of the following are true:
 
 ## Desktop
 
@@ -2548,7 +2548,7 @@ The long-term vision is:
 ```text
 user turns on computer
        ↓
-CompanionOS starts
+Lily starts
        ↓
 character appears naturally on desktop
        ↓
@@ -2574,7 +2574,7 @@ The experience should feel less like opening an AI application and more like hav
 # 81. Final Architectural Summary
 
 ```text
-                         COMPANIONOS
+                         Lily
 
                             CLOUD
                               │
@@ -2639,5 +2639,5 @@ That boundary should remain stable unless there is a strong technical reason to 
 
 # 82. Short Project Pitch
 
-**CompanionOS** is a local-first voice-driven AI desktop companion built around a fine-tuned quantized Small Language Model, local speech recognition and TTS, and a custom 2D skeletal animation engine. Users customize the companion through a human-readable `persona.md`, while a Java desktop runtime integrates voice, AI inference, animation, and Windows overlay behavior. A Spring Boot backend is used only as a secure distribution/control plane for models, animations, assets, releases, and application updates.
+**Lily** is a local-first voice-driven AI desktop companion built around a fine-tuned quantized Small Language Model, local speech recognition and TTS, and a custom 2D skeletal animation engine. Users customize the companion through a human-readable `persona.md`, while a Java desktop runtime integrates voice, AI inference, animation, and Windows overlay behavior. A Spring Boot backend is used only as a secure distribution/control plane for models, animations, assets, releases, and application updates.
 
