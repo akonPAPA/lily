@@ -1,13 +1,10 @@
-# Build output
 .gradle/
 build/
 out/
 bin/
 
-# Gradle wrapper distribution cache (the wrapper jar IS committed; dists are not)
 !gradle/wrapper/gradle-wrapper.jar
 
-# IDE
 .idea/
 *.iml
 .vscode/
@@ -15,26 +12,19 @@ bin/
 *.project
 *.settings/
 
-# Python tooling (ai/)
 __pycache__/
 *.pyc
 .venv/
 venv/
 *.egg-info/
 
-# JCEF/Chromium runtime — downloaded on first run by jcefmaven
 desktop/jcef-bundle/
 
-# Vendored llama.cpp server binaries (optional fallback runtime; Ollama is the default).
-# Fetch/build separately if you want the managed-server path.
 /tools/llama/
 
-# Generated art previews (rebuilt by ai/tools/pack_strips.py alongside sprites.png)
 **/preview.png
 **/rig_preview.png
 
-# Local runtime data — large, downloaded by the fetch scripts; never committed.
-# Get them with: python ai/tools/fetch_model.py and python ai/tools/fetch_speech_models.py
 /models/*.gguf
 /models/.cache/
 /speech/asr/
@@ -42,14 +32,11 @@ desktop/jcef-bundle/
 /speech/tts/
 /speech/vad/
 
-# Logs / crash dumps
 *.log
 hs_err_pid*.log
 
-# OS
 .DS_Store
 Thumbs.db
 
-# Secrets / local env
 *.env
 .env.local
